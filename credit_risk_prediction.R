@@ -14,6 +14,7 @@ credit_rem<-credit[-test_insts,]
 val_insts<-sample(nrow(credit_rem),0.25*nrow(credit_rem))
 credit_val<-credit_rem[val_insts,]
 credit_train<-credit_rem[-val_insts,]
+
 #part2---logistic regression model
 #install.packages('ROCR')
 attach(credit_train)
@@ -49,6 +50,7 @@ plot(roc_val,col='RED')
 plot(roc_train,col='GREEN',add=T)
 abline(a=0,b=1,lty=3)
 legend(0.6,0.4, legend=c('Val','Train'),col=c('red','green'), lty=1,cex=0.8)
+
 #part3---classification trees
 library(tree)
 acc_tab <- NULL
